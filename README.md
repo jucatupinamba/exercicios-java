@@ -1,2 +1,2 @@
 # exercicios-java
-Respositório para prática de Java e Orientação ao Objeto e seus conceitos.
+Respositório para execução de exercícios e desafios em Java Programação Orientada ao Objeto, sugeridos por outros desenvolvedores mais experientes.
