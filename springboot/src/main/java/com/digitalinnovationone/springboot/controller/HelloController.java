@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @GetMapping("/")
+    @GetMapping
     public String helloMessage(){
         return "Hello pesoal. Iniciando o desenvolvimento em SpringBoot.";
     }
