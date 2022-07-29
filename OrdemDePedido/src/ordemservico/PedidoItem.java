@@ -9,4 +9,12 @@ public class PedidoItem extends Produto{
         soma = quantidade * getPreco();
         return soma;
     }
+
+    public Integer getQuantidade() {
+        return this.quantidade;
+    }
+
+    public void setQuantidade(final Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 }
