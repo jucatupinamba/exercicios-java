@@ -1,11 +1,15 @@
-package ordemservico;
+package programa;
+
+import ordemservico.Cliente;
+import ordemservico.OrdemPedido;
+import ordemservico.PedidoItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Programa {
+public class Programa {                 //debugar e corrigir
     public static void main(String[] args) throws ParseException {
 
         Scanner scan = new Scanner(System.in);
@@ -17,17 +21,17 @@ public class Programa {
         String nome = scan.nextLine();
         System.out.print("Email: ");
         String email = scan.nextLine();
-        System.out.print("Data de nascimento: ");
+        System.out.print("Data de nascimento: (dd/mm/AAAA)");
         Date data = simple.parse(scan.next());
         Cliente cliente = new Cliente(nome, email, data);
-        ordemPedido.addCliente(cliente);                      //Espaço para cadastro de clientes, para ser ampliado
 
         System.out.println("Quantos itens deseja cadastrar: ");
         int totalItens = scan.nextInt();
-        for(int i = 0; i < totalItens; i++){
+        for(int i = 0; i <= totalItens; i++){
             System.out.println("Digite os dados do " + (i + 1) + "° produto:");
             System.out.print("Digite o nome do produto: ");
             String nomeProduto = scan.nextLine();
+            scan.nextLine();
             System.out.print("Digite a quantidade do produto: ");
             int quantidade = scan.nextInt();
             System.out.print("Digite o preço do produto: ");
@@ -36,6 +40,7 @@ public class Programa {
             ordemPedido.addItem(pedidoItem);
         }
 
-        //falta apenas a impressão dos dados
+        System.out.println(ordemPedido.toString());
+
     }
 }

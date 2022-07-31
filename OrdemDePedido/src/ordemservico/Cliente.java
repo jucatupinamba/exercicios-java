@@ -1,5 +1,7 @@
 package ordemservico;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 public class Cliente {
@@ -8,33 +10,38 @@ public class Cliente {
     private String email;
     private Date dataNascimento;
 
-    public Cliente(final String nome, final String email, final Date dataNascimento) {
+    public Cliente(String nome, String email, final Date dataNascimento) {
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
     }
 
-    public String getNome() {
-        return this.nome;
+    public Cliente() {
+
     }
 
-    public void setNome(final String nome) {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
-    public void setEmail(final String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public Date getDataNascimento() {
-        return this.dataNascimento;
+
+        return dataNascimento;
     }
 
-    public void setDataNascimento(final Date dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

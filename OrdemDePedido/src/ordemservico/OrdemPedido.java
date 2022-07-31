@@ -9,7 +9,7 @@ import java.util.List;
 public class OrdemPedido {
 
     private List<PedidoItem> listaPedido = new ArrayList<>();
-    private List<Cliente> listaCliente = new ArrayList<>();
+    Cliente cliente = new Cliente();
     private Date horaCompra;
     StatusDoPedido status;
 
@@ -28,13 +28,7 @@ public class OrdemPedido {
     public void removeItem(PedidoItem pedidoItem){
         listaPedido.remove(pedidoItem);
     }
-    public void addCliente(Cliente cliente){
-        listaCliente.add(cliente);
-    }
 
-    public void removeCliente(Cliente cliente){
-        listaCliente.remove(cliente);
-    }
 
     public Double total(){
         double somaProdutos = 0;
@@ -44,7 +38,20 @@ public class OrdemPedido {
         return somaProdutos;
     }
 
-        //criar toString
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("ORDEM DE PEDIDO");
+        sb.append("Cliente : " + cliente.getNome());
+        sb.append("Email: " + cliente.getEmail());
+        sb.append("Data de Nascimento: " + cliente.getDataNascimento());
+        for (PedidoItem pedidoItem : listaPedido) {
+            sb.append(pedidoItem + "\n");
+        }
+        sb.append("Preço Total: ");
+        sb.append(String.format("R$ %.2f", total()));
+        return sb.toString();
+
+    }
 
     public List<PedidoItem> getListaPedido() {
         return this.listaPedido;
