@@ -9,8 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Programa {                 //debugar e corrigir
-    public static void main(String[] args) throws ParseException {
+    //necessário debugar - avaliar outro tratamento de exceção
+public class Programa {
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         SimpleDateFormat simple = new SimpleDateFormat("DD/MM/YYYY");
@@ -22,12 +23,16 @@ public class Programa {                 //debugar e corrigir
         System.out.print("Email: ");
         String email = scan.nextLine();
         System.out.print("Data de nascimento: (dd/mm/AAAA)");
-        Date data = simple.parse(scan.next());
-        Cliente cliente = new Cliente(nome, email, data);
+        try {Date data = simple.parse(scan.next());
+        Cliente cliente = new Cliente(nome, email, data);}
+
+        catch(ParseException p){
+            System.out.println("Dados inconsistentes com data de nascimento.");
+        }
 
         System.out.println("Quantos itens deseja cadastrar: ");
         int totalItens = scan.nextInt();
-        for(int i = 0; i <= totalItens; i++){
+        for(int i = 0; i < totalItens; i++){
             System.out.println("Digite os dados do " + (i + 1) + "° produto:");
             System.out.print("Digite o nome do produto: ");
             String nomeProduto = scan.nextLine();
