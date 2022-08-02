@@ -1,17 +1,20 @@
 package ordemservico;
 
-public class PedidoItem extends Produto{
+public class PedidoItem{
 
+    private String nome;
+    private Double preco;
     private Integer quantidade;
     private double subTotal;
 
     public PedidoItem(final String nome, final Integer quantidade, final Double preco) {
-        super(nome, preco);
+        this.nome = nome;
+        this.preco = preco;
         this.quantidade = quantidade;
     }
 
     public Double subTotal(){
-        subTotal = quantidade * getPreco();
+        subTotal = quantidade * preco;
         return subTotal;
     }
 
@@ -24,9 +27,9 @@ public class PedidoItem extends Produto{
     }
 
     public String toString(){
-        return "Produto: " + getNome() + '\n' +
+        return "Produto: " + nome + '\n' +
                 "Quantidade: " + getQuantidade() + '\n' +
-                "Preço: " + getPreco() + '\n' +
+                "Preço: " + preco + '\n' +
                 "Subtotal: R$ " + subTotal;
 
     }

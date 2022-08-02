@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Programa {                 //debugar e corrigir
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         SimpleDateFormat simple = new SimpleDateFormat("DD/MM/YYYY");
@@ -22,12 +22,17 @@ public class Programa {                 //debugar e corrigir
         System.out.print("Email: ");
         String email = scan.nextLine();
         System.out.print("Data de nascimento: (dd/mm/AAAA)");
-        Date data = simple.parse(scan.next());
-        Cliente cliente = new Cliente(nome, email, data);
+        try { Date data = simple.parse(scan.next());
+        Cliente cliente = new Cliente(nome, email, data); }
+
+        catch(ParseException e) {
+            System.out.println("Os dados inseridos são divergentes do solicitado");
+            scan.close();
+        }
 
         System.out.println("Quantos itens deseja cadastrar: ");
         int totalItens = scan.nextInt();
-        for(int i = 0; i <= totalItens; i++){
+        for(int i = 0; i < totalItens; i++){
             System.out.println("Digite os dados do " + (i + 1) + "° produto:");
             System.out.print("Digite o nome do produto: ");
             String nomeProduto = scan.nextLine();
@@ -40,7 +45,8 @@ public class Programa {                 //debugar e corrigir
             ordemPedido.addItem(pedidoItem);
         }
 
-        System.out.println(ordemPedido.toString());
+        System.out.println(ordemPedido.toString());  //investigando erro, saida do cliente null
+                                                    //correção no método subtotal e total
 
     }
 }
