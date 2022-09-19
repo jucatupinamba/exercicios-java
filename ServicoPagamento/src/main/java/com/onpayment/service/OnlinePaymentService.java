@@ -1,4 +1,4 @@
-package com.servico.service;
+package com.onpayment.service;
 
 public interface OnlinePaymentService {
 
