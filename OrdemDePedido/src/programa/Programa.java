@@ -9,8 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+
     //necessário debugar - avaliar outro tratamento de exceção
 public class Programa {
+
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -23,11 +25,13 @@ public class Programa {
         System.out.print("Email: ");
         String email = scan.nextLine();
         System.out.print("Data de nascimento: (dd/mm/AAAA)");
+
         try {Date data = simple.parse(scan.next());
         Cliente cliente = new Cliente(nome, email, data);}
 
         catch(ParseException p){
             System.out.println("Dados inconsistentes com data de nascimento.");
+
         }
 
         System.out.println("Quantos itens deseja cadastrar: ");
@@ -45,7 +49,8 @@ public class Programa {
             ordemPedido.addItem(pedidoItem);
         }
 
-        System.out.println(ordemPedido.toString());
+        System.out.println(ordemPedido.toString());  //investigando erro, saida do cliente null
+                                                    //correção no método subtotal e total
 
     }
 }

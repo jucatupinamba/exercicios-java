@@ -32,8 +32,10 @@ public class OrdemPedido {
 
     public Double total(){
         double somaProdutos = 0;
-        for(int i = 0; i <= listaPedido.size(); i++){
-            somaProdutos += listaPedido.get(i).subTotal();
+        int i = 0;
+        while( i < listaPedido.size()){
+            somaProdutos = listaPedido.get(i).subTotal();
+            i++;
         }
         return somaProdutos;
     }

@@ -1,5 +1,7 @@
 package ordemservico;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
@@ -10,7 +12,7 @@ public class Cliente {
     private String email;
     private Date dataNascimento;
 
-    public Cliente(String nome, String email, final Date dataNascimento) {
+    public Cliente(String nome, String email, final Date dataNascimento) throws ParseException{
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
